@@ -355,7 +355,7 @@
 		white-space: nowrap;
 		text-transform: uppercase;
 		letter-spacing: 0.325em;
-		font-size: 0.725em;
+		font-size: 0.6em;
 	}
 
 		input[type="submit"].icon:before,
@@ -411,6 +411,8 @@
 			button,
 			.button {
 				padding: 0;
+				padding-left: 1em;
+    			padding-right: 1em;
 			}
 
 		}
@@ -1424,7 +1426,8 @@
 		}
 
 		#header hr {
-			border-bottom-color: #ffffff;
+			/* border-bottom-color: #ffffff; */
+			/* border-bottom: solid 2px #ffffff; */
 		}
 
 		#header:before {
@@ -1711,6 +1714,7 @@
 	
 	
 /* Login */
+		
 	.login-form {
 		width:100%;
 		display:flex;
@@ -1731,6 +1735,7 @@
 	#comment-edit-btn.on{
 		display:block;
 	}
+	
 /* Footer */
 
 	#footer {

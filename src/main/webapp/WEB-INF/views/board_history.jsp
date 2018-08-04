@@ -18,18 +18,6 @@
 			<header>
 				<h1>${comment.title}</h1>
 				<div class="header-detail">
-					<div>
-						<i class="fa fa-user"></i> ${comment.id}
-					</div>
-					&nbsp;&nbsp;
-					<div>
-						<i class="fa fa-table"></i> ${comment.regDate}
-					</div>
-					&nbsp;&nbsp;
-					<div>
-						<i class="fa fa-bar-chart-o"></i> ${comment.count}
-					</div>
-					&nbsp;&nbsp;
 					<div class ="comment-index" style="display:none;">${comment.index}</div>
 				</div>
 			</header>

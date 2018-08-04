@@ -11,3 +11,5 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/alertifyjs/css/alertify.css" />
 <!-- include a theme, can be included into the core instead of 2 separate files -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/alertifyjs/css/themes/bootstrap.css" />
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/jAnimate/animate.css" />

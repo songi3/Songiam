@@ -7,3 +7,5 @@
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/lib/alertifyjs/alertify.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/lib/jAnimate/jAnimate.js"></script>

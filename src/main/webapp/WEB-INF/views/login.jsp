@@ -6,9 +6,9 @@
 <%@ include file="/WEB-INF/views/included/included_head.jsp"%>
 </head>
 <body>
-	<div id="wrapper">
-		<section id="cta" class="main special"
-			style="display: flex; justify-content: center; align-items: center;">
+	
+		<div id="login-wrapper" style="padding: 2em 1em 0.1em 1em; display: flex; justify-content: center; 
+		align-items: center; width:100%; height:100%; text-align: center; background-color: #ffffff;">
 			<div class="login-form">
 				<div class="text-info">LOGIN</div>
 				<div class="input-form">
@@ -27,8 +27,8 @@
 
 			</div>
 
-		</section>
-	</div>
+		</div>
+	
 	<%@ include file="/WEB-INF/views/included/included_foot.jsp"%>
 </body>
 </html>

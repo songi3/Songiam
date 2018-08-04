@@ -58,6 +58,7 @@
 	
 	$(document).ready(function() {
 		checkSession();
+		 setTextAnimation();
 	});
 	
 	/***************************************************************************
@@ -117,7 +118,7 @@
 	
 	
 	/***************************************************************************
-	 * 클릭 이벤트 각종 버튼, 리소스 클릭 시
+	 * 클릭 이벤트 각종 버튼, 리소스 클릭 시 
 	 **************************************************************************/
 	
 	// TOP 버튼
@@ -239,3 +240,27 @@
 	}
 
 	
+	/***************************************************************************
+	 * 애니메이션
+	 **************************************************************************/
+	
+	function bounceAnimation(item){
+		$(item).jAnimate('bounce');
+	}
+	
+	function fadeInUpAnimation(item){
+		$(item).jAnimate('fadeInUp');
+	}
+	
+	function pulseAnimation(item){
+		$(item).jAnimate('pulse');
+	}
+	
+	function setTextAnimation(){
+		$(".main h2").mouseenter(function(){
+			bounceAnimation(".main h2");
+		  });
+		$("#header h1").mouseenter(function(){
+			pulseAnimation("#header h1");
+		  });
+	}

@@ -13,17 +13,18 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		
+
 		<div class="loading-image"></div>
 		<div class="mask"></div>
-		
+
 		<!-- Banner -->
 		<section id="intro" class="main">
 			<span class="icon fa-diamond major"></span>
 			<h2>Learn About Me</h2>
 			<p>학력 및 자격사항</p>
 			<ul class="actions">
-				<li><a href="#" class="button big" onclick="historyButtonClickEvent()">Learn More</a></li>
+				<li><a href="#" class="button big"
+					onclick="historyButtonClickEvent()">Learn More</a></li>
 			</ul>
 		</section>
 
@@ -65,9 +66,7 @@
 		<!-- CTA -->
 		<section id="cta" class="main special">
 			<h2>CONTACT</h2>
-			<p>
-				문의사항은 메세지를 보내주세요.
-			</p>
+			<p>문의사항은 메세지를 보내주세요.</p>
 			<form class="contact-form">
 				<div class="two-layers">
 					<input type="text" id="name" placeholder="Your Name..."> <input
@@ -88,5 +87,6 @@
 		</section>
 
 		<%@ include file="/WEB-INF/views/included/included_fotter.jsp"%>
+	</div>
 </body>
 </html>
