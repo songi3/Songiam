@@ -156,7 +156,7 @@
 			},
 			success : function(success) {
 
-				alertify.alert("전송완료", function() {
+				alertify.alert("알림", "전송완료", function() {
 					alertify.success('메세지가 전송되었습니다.');
 				});
 			},
@@ -257,7 +257,7 @@
 	}
 	
 	function setTextAnimation(){
-		$(".main h2").mouseenter(function(){
+		$(".main").mouseenter(function(){
 			bounceAnimation(".main h2");
 		  });
 		$("#header h1").mouseenter(function(){

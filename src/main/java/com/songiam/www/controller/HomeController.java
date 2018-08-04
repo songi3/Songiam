@@ -143,7 +143,7 @@ public class HomeController {
 	public Object loginCheck(@RequestParam(value = "id")String id, @RequestParam(value = "password")String password, HttpServletRequest request, Model model) {
 		logger.info("loginCheck");
 		logger.info("id :: " + id + " password :: " + password);
-	
+		
 		User user = userService.checkUser(id, password);
 		logger.info("user :: " + user);
 		
