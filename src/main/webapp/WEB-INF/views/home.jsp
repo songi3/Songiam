@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/included/included_head.jsp"%>
+
 </head>
 <body>
 
