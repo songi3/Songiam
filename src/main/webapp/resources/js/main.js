@@ -59,7 +59,14 @@
 	$(document).ready(function() {
 		checkSession();
 		 setTextAnimation();
+		 setImgSize();
 	});
+	
+	// 창크기 변화 감지
+	$(window).resize(function() {
+		setImgSize();
+	});
+
 	
 	/***************************************************************************
 	 * 함수
@@ -116,7 +123,23 @@
 		$('.project-btn').removeClass("on");
 	}
 	
-	
+	// 동적으로 프로젝트 디테일의 이미지 크기 조정
+	// 992 보다 크면 100% 작으면 
+	function setImgSize() {
+		var windowWidth = $(window).width();
+		if (windowWidth < 992) {
+			var projectImgs = $('.main').find('img');
+			projectImgs.each(function() {
+				$(this).width('100%');
+			});
+		} else {
+			var projectImgs = $('.main').find('img');
+			projectImgs.each(function() {
+				
+			});
+		}
+	}
+
 	/***************************************************************************
 	 * 클릭 이벤트 각종 버튼, 리소스 클릭 시 
 	 **************************************************************************/
