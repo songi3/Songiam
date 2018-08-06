@@ -7,8 +7,7 @@
 			class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 	</ul>
 	<p class="copyright">
-		&copy; 2018. Songiam Design: <a href="https://templated.co">TEMPLATED</a>.
-		Images: <a href="https://unsplash.com">Unsplash</a>.
+		&copy; 2018. Songiam Design: TEMPLATED.
 	</p>
 </footer>
 

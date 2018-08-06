@@ -133,7 +133,7 @@
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		text-decoration: none;
-		border-bottom: dotted 1px;
+		/* border-bottom: dotted 1px; */
 	}
 
 		a:hover {
@@ -413,6 +413,7 @@
 				padding: 0;
 				padding-left: 1em;
     			padding-right: 1em;
+    			width:100%;
 			}
 
 		}
@@ -1388,7 +1389,7 @@
 		-ms-flex-direction: column;
 		flex-direction: column;
 		padding: 8em 0 6em 0;
-		background-image: url("../img/banner.jpg");
+		background-image: url("../img/banner.png");
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
@@ -1535,8 +1536,8 @@
 
 		.topMoveBtn {
 			position: fixed;
-			right: 2%;
-			bottom: 13px;
+			right: 1%;
+			bottom: 5px;
 			display: none;
 			z-index: 999;
 			width:50px;
@@ -1668,7 +1669,10 @@
 				padding-left:0%;
 				padding-right:0%;
 			}
-
+			
+				.contact-form #messageDefaultBtn {		
+					    width: 100%;
+				}
 		}
 	
 		.two-layers{
@@ -1737,6 +1741,13 @@
 		display:block;
 	}
 	
+	@media screen and (max-width: 480px) {
+
+			.login-form .button {
+			    margin-bottom: 5px;
+			}
+		}
+	
 /* Footer */
 
 	#footer {
@@ -1761,6 +1772,9 @@
 			font-size: 0.8em;
 		}
 
+		#footer p {
+		color: #d1d1d1; 
+		}
 		@media screen and (max-width: 736px) {
 
 			#footer {

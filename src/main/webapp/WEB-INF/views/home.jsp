@@ -52,7 +52,7 @@
 				<!-- Tag 삽입 -->
 				<article class="item">
 					<header>
-						<a href="#"><img src="${imgSRC}" alt="${comment.index}" /></a>
+						<a href="#" onclick="commentDetailEvent(this)" id="${comment.index}"><img src="${imgSRC}" alt="${comment.index}" /></a>
 						<h3>${comment.title}</h3>
 					</header>
 					<p>${comment.subTitle}</p>
