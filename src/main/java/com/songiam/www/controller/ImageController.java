@@ -47,7 +47,7 @@ public class ImageController {
 
 			String fileName = upload.getOriginalFilename();
 			byte[] bytes = upload.getBytes();
-			String uploadPath = realPath + "\\resources\\img\\upload\\" + fileName;// 저장경로
+			String uploadPath = realPath + "/resources/img/upload/" + fileName;// 저장경로
 
 			out = new FileOutputStream(new File(uploadPath));
 			out.write(bytes);
