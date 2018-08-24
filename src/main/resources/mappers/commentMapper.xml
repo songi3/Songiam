@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="commentMapper">
+
+	<insert id="saveComment" useGeneratedKeys="true" keyProperty="index">
+		insert into comments(title, sub_title, id, comment, thumbnail) values (#{title}, #{subTitle}, "wks4j1004", #{comment}, #{thumbnail})		
+	</insert>
+	
+	<update id="updateComment">
+		update comments set title = #{title}, comment = #{comment}, sub_title = #{subTitle}, up_date = now(), thumbnail = #{thumbnail} where comments.index = #{index}
+	</update>
+	
+	<update id="increaseCommentCount">
+		update comments set count = count + 1 where comments.index = #{index}  
+	</update>
+	
+	<insert id="saveContactMessage" useGeneratedKeys="true" keyProperty="index" parameterType="ContactMessageVO">
+		insert into contact_message(name, email, subject, content, reg_date) values (#{name}, #{email}, #{subject}, #{content}, now()) 
+	</insert>
+	
+	<select id="getAllComments" resultType="commentVO">
+		select * from comments order by comments.index
+	</select>
+	
+	<select id="getComment" resultType="commentVO">
+		select * from comments where comments.index = #{commentIndex}
+	</select>
+	
+	<select id="getHistoryComment" resultType="commentVO">
+		select * from history
+	</select>
+	
+	<delete id="removeComment">
+		delete from comments where comments.index = #{index}
+	</delete>
+	
+</mapper>

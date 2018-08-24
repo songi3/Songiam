@@ -47,10 +47,16 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("/");
 
-		List<Comment> commentsList = commentService.getAllComments();
-		logger.info("comments count :: " + commentsList.size() + " :: " + commentsList.toString());
-		model.addAttribute("commentsList", commentsList);
+		List<Comment> commentsList;
+		try {
+			commentsList = commentService.getAllComments();
+			logger.info("comments count :: " + commentsList.size() + " :: " + commentsList.toString() + ":: " + commentsList.get(1).getSubTitle());
+			model.addAttribute("commentsList", commentsList);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
 		return "home";
 	}
 	
@@ -61,14 +67,19 @@ public class HomeController {
 		String commentIndex = index;
 		logger.info("commentDetail : index :: " + index);
 	
-		commentService.increaseCommentCount(commentIndex); //count 증가
-		
-		Comment comment = commentService.getComment(commentIndex);
-		logger.info("comment content :: " + comment.getComment());
+		try {
+			commentService.increaseCommentCount(commentIndex); //count 증가
+			
+			Comment comment = commentService.getComment(commentIndex);
+			logger.info("comment content :: " + comment.getComment());
 
-		model.addAttribute("comment", comment);
-		model.addAttribute("commentIndex", commentIndex);
-	
+			model.addAttribute("comment", comment);
+			model.addAttribute("commentIndex", commentIndex);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 		return "board_detail";
 	}
 	
@@ -101,19 +112,42 @@ public class HomeController {
 	public String commentEdit(@RequestParam(value = "index")String index, Model model) {
 		logger.info("commentEdit");
 		
-		Comment comment = commentService.getComment(index);
-		model.addAttribute("comment", comment);
+		Comment comment;
+		try {
+			comment = commentService.getComment(index);
+			model.addAttribute("comment", comment);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return "board_edit";
+	}
+	
+	@RequestMapping(value = "/commentRemove", method = RequestMethod.GET)
+	public String commentRemove(@RequestParam(value = "index")String index, Model model) {
+		logger.info("commentRemove");
+		
+		try {
+			commentService.removeComment(index);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		return "redirect:" + "/";
 	}
 	
 	@RequestMapping(value = "/showHistory", method = RequestMethod.GET)
 	public String showHistory(Model model) {
 		logger.info("commentEdit");
 		
-		Comment comment = commentService.getHistoryComment();
-		model.addAttribute("comment", comment);
-		
+		Comment comment;
+		try {
+			comment = commentService.getHistoryComment();
+			model.addAttribute("comment", comment);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
 		return "board_history";
 	}
 	
@@ -127,12 +161,16 @@ public class HomeController {
 		logger.info("contentData :: " + contentData + " title :: " + title + " thumbnail :: " + thumbnail
 				+ " subTitle :: " + subTitle + " index :: " + index);
 
-		if (index.equals("")) { // 게시물 생성
-			logger.info("index is ''");
-			commentService.saveComment(contentData, title, thumbnail, subTitle);
+		try {
+			if (index.equals("")) { // 게시물 생성
+				logger.info("index is ''");
+				commentService.saveComment(contentData, title, thumbnail, subTitle);
 
-		} else { // 게시물을 수정할 경우
-			commentService.updateComment(index, contentData, title, thumbnail, subTitle);
+			} else { // 게시물을 수정할 경우
+				commentService.updateComment(index, contentData, title, thumbnail, subTitle);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return "redirect:" + "/";
@@ -143,24 +181,30 @@ public class HomeController {
 	public Object loginCheck(@RequestParam(value = "id")String id, @RequestParam(value = "password")String password, HttpServletRequest request, Model model) {
 		logger.info("loginCheck");
 		logger.info("id :: " + id + " password :: " + password);
+			
+		try {
+			User user = userService.checkUser(id, password);
 		
-		User user = userService.checkUser(id, password);
-		logger.info("user :: " + user);
+			logger.info("user :: " + user);
+			
+			if (user == null) {
+				logger.info("user is not exist!");
+			}
+
+			else {
+				logger.info("login success!");
+				Map<String, Object> userMap = new HashMap<String, Object>();
+				userMap.put("user", user);
+
+				request.getSession().setAttribute("loginUser", user);
+
+				return userMap;
+			}		
 		
-		if (user == null) {
-			logger.info("user is not exist!");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		else {
-			logger.info("login success!");
-			Map<String, Object> userMap = new HashMap<String, Object>();
-			userMap.put("user", user);
-
-			request.getSession().setAttribute("loginUser", user);
-
-			return userMap;
-		}
-		
+				
 		return null;
 	}
 	
@@ -192,7 +236,12 @@ public class HomeController {
 
 		logger.info("saveContactMessage :: " + name + " :: " + content);
 
-		commentService.saveContactMessage(contactMessage); //DB 해당 내용 저장
+		try {
+			commentService.saveContactMessage(contactMessage); //DB 해당 내용 저장
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 			
 		mail.sendMail(name, email, subject, content); //해당 내용 메일 발송
 		return null;

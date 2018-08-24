@@ -15,14 +15,38 @@
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
+		<property name="initialSize" value="5"/>
+        <property name="maxActive" value="20"/>
+        <property name="minIdle" value="5"/>
+        <property name="maxWait" value="3000"/>
+        <property name="poolPreparedStatements" value="true"></property>
+        <property name="maxOpenPreparedStatements" value="50"></property>
+        
+		<!-- 특정 시간마다 validationQuery를 실행 셋팅 -->
+        <property name="validationQuery" value="select 1"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="timeBetweenEvictionRunsMillis" value="7200000"/>
 	</bean>
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<constructor-arg>
 			<ref bean="dataSource" />
 		</constructor-arg>
-
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
+	
+	 <!-- mybatis SqlSessionFactoryBean -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+        <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+    </bean>
+    
+        <!-- mybatis      -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
+        destroy-method="clearCache">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+    </bean>
+    
 	<context:annotation-config></context:annotation-config>
 </beans>

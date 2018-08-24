@@ -5,7 +5,12 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/included/included_head.jsp"%>
-
+<!-- include the favicon -->
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resources/img/favicon.ico">
+<link rel="icon"
+	href="${pageContext.request.contextPath}/resources/img/favicon.ico"
+	type="image/x-icon" />
 </head>
 <body>
 

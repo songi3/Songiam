@@ -46,7 +46,9 @@
 			<input type="button" class="button" value="TOP" style="margin-right: 1em;"
 				onclick="topButtonClickEvent()"> 
 			<input type="button"
-				class="button" value="EDIT" id="comment-edit-btn" onclick="commentEditButtonClickEvent()">
+				class="button" value="EDIT" id="comment-edit-btn" style="margin-right: 1em;" onclick="commentEditButtonClickEvent()">
+			<input type="button"
+				class="button" value="DELETE" id="comment-remove-btn" onclick="commentRemoveButtonClickEvent()">
 		</div>
 		<%@ include file="/WEB-INF/views/included/included_fotter.jsp"%>
 	</div>

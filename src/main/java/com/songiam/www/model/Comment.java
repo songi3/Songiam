@@ -7,20 +7,20 @@ public class Comment {
 	int index;
 	String title;
 	String id;
-	Date regDate;
-	Date upDate;
+	Date reg_date;
+	Date up_date;
 	String comment;
 	int like;
 	int count;
 	String thumbnail;
-	String subTitle;
+	String sub_title;
 	
 	public String getSubTitle() {
-		return subTitle;
+		return sub_title;
 	}
 
-	public void setSubTitle(String subTitle) {
-		this.subTitle = subTitle;
+	public void setSubTitle(String sub_title) {
+		this.sub_title = sub_title;
 	}
 
 	public String getThumbnail() {
@@ -56,19 +56,19 @@ public class Comment {
 	}
 
 	public Date getRegDate() {
-		return regDate;
+		return reg_date;
 	}
 
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setRegDate(Date reg_date) {
+		this.reg_date = reg_date;
 	}
 
 	public Date getUpDate() {
-		return upDate;
+		return up_date;
 	}
 
-	public void setUpDate(Date upDate) {
-		this.upDate = upDate;
+	public void setUpDate(Date up_date) {
+		this.up_date = up_date;
 	}
 
 	public String getComment() {

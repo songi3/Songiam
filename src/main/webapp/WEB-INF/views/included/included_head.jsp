@@ -14,9 +14,3 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/jAnimate/animate.css" />
 
-<!-- include the favicon -->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resources/img/favicon.ico">
-<link rel="icon"
-	href="${pageContext.request.contextPath}/resources/img/favicon.ico"
-	type="image/x-icon" />

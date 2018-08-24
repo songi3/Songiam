@@ -1741,6 +1741,14 @@
 		display:block;
 	}
 	
+	#comment-remove-btn{
+		display:none;
+	}
+	
+	#comment-remove-btn.on{
+		display:block;
+	}
+	
 	@media screen and (max-width: 480px) {
 
 			.login-form .button {
