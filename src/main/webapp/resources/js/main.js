@@ -13,7 +13,7 @@
 		xxsmall: '(max-width: 360px)'
 	});
 
-	$(function() {
+	$(function() { //로딩 될 때
 
 		var	$window = $(window),
 			$body = $('body');
@@ -56,10 +56,15 @@
 
 	});
 	
-	$(document).ready(function() {
-		checkSession();
+	$(window).load(function() { // 로딩 완료시
+		hideLoadingImage();
+	});
+	
+	$(document).ready(function() { //로딩 시작시
+		 checkSession();
 		 setTextAnimation();
 		 setImgSize();
+		 showLoadingImage();
 	});
 	
 	// 창크기 변화 감지
@@ -104,6 +109,12 @@
 				} else { // 로그인 중
 					setLogout();
 				}
+			},
+			beforeSend : function() { // 이미지 보여주기 처리
+				showLoadingImage();
+			},
+			complete : function() { // 이미지 감추기 처리
+				hideLoadingImage();
 			}
 		});
 	}
@@ -126,6 +137,18 @@
 		$('.archive-btn').removeClass("on");	
 	}
 	
+	function showLoadingImage(){
+		$(".loading-image").addClass("on"); // 로딩 이미지 보이게
+		$(".mask").addClass("on"); //마스크 보이게
+		$(".mask").fadeTo("slow", 0.4); // 배경 흐리게 효과
+	}
+	
+	function hideLoadingImage(){
+		$(".loading-image").removeClass("on");
+		$(".mask").fadeTo("slow", 0); // 마스크 없애기
+		$(".mask").removeClass("on");
+		$(".mask").css("display","none");
+	}
 	// 동적으로 프로젝트 디테일의 이미지 크기 조정
 	// 992 보다 크면 100% 작으면 
 	function setImgSize() {
@@ -187,14 +210,10 @@
 				});
 			},
 			beforeSend : function() { // 이미지 보여주기 처리
-				$(".loading-image").addClass("on"); // 로딩 이미지 보이게
-				$(".mask").addClass("on"); //마스크 보이게
-				$(".mask").fadeTo("slow", 0.4); // 배경 흐리게 효과
+				showLoadingImage();
 			},
 			complete : function() { // 이미지 감추기 처리
-				$(".loading-image").removeClass("on");
-				$(".mask").fadeTo("slow", 0); // 마스크 없애기
-				$(".mask").removeClass("on");
+				hideLoadingImage();
 			}
 
 		});
@@ -230,6 +249,12 @@
 						var user = userMap.user;	
 						callController('/songihome/?id=' + user.id +"&password=" + user.password);
 					}
+			},
+			beforeSend : function() { // 이미지 보여주기 처리
+				showLoadingImage();
+			},
+			complete : function() { // 이미지 감추기 처리
+				hideLoadingImage();
 			}
 		});
 	}
