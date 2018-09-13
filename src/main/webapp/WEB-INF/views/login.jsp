@@ -9,6 +9,10 @@
 	
 		<div id="login-wrapper" style="padding: 2em 1em 0.1em 1em; display: flex; justify-content: center; 
 		align-items: center; width:100%; height:100%; text-align: center;">
+		
+		<div class="loading-image"></div>
+		<div class="mask"></div>
+		
 			<div class="login-form">
 				<div class="text-info">LOGIN</div>
 				<div class="input-form">

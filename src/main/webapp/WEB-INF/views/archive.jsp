@@ -13,6 +13,9 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
+		<div class="loading-image"></div>
+		<div class="mask"></div>
+		
 		<!-- Main -->
 
 		<section id="main" class="main">
