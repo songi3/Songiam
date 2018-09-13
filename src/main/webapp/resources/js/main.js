@@ -64,7 +64,6 @@
 		 checkSession();
 		 setTextAnimation();
 		 setImgSize();
-		 showLoadingImage();
 	});
 	
 	// 창크기 변화 감지
@@ -88,12 +87,20 @@
 	
 	// 컨트롤러 호출
 	function callController(url) {
+		hideLoadingImage();
+		setTimeout(function() {
+			showLoadingImage();
+			}, 3000);
 		$(location).attr('href', url);
 	}
 	
 	// 프로젝트, 커멘트 디테일 페이지 이동
 	function commentDetailEvent(e){
 		var commentIndex = e.id;
+		hideLoadingImage();
+		setTimeout(function() {
+			showLoadingImage();
+			}, 3000);
 		callController('/songihome/commentDetail?index=' + commentIndex);
 	}
 	
@@ -109,12 +116,6 @@
 				} else { // 로그인 중
 					setLogout();
 				}
-			},
-			beforeSend : function() { // 이미지 보여주기 처리
-				showLoadingImage();
-			},
-			complete : function() { // 이미지 감추기 처리
-				hideLoadingImage();
 			}
 		});
 	}
