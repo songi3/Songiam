@@ -114,6 +114,7 @@
 		$('#comment-edit-btn').addClass("on");
 		$('.project-btn').addClass("on");
 		$('#comment-remove-btn').addClass("on");
+		$('.archive-btn').addClass("on");	
 	}
 
 	function setLogin(){
@@ -122,6 +123,7 @@
 		$('#comment-edit-btn').removeClass("on");
 		$('.project-btn').removeClass("on");
 		$('#comment-remove-btn').removeClass("on");
+		$('.archive-btn').removeClass("on");	
 	}
 	
 	// 동적으로 프로젝트 디테일의 이미지 크기 조정
@@ -256,7 +258,7 @@
 	
 	function logoutButtonClickEvent(){
 		callController('/songihome/logout');
-		alertify.alert("알림", "로그아웃");
+		alert("로그아웃");
 	}
 	
 	function commentEditButtonClickEvent(){
@@ -268,6 +270,10 @@
 		var index = $('.comment-index').text();
 		callController('/songihome/commentRemove?index=' + index);	
 		alertify.alert("알림", "삭제");
+	}
+	
+	function archiveButtonClickEvent(){
+		callController('/songihome/archive');	
 	}
 	
 	/***************************************************************************

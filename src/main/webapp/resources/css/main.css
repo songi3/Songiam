@@ -1367,6 +1367,15 @@
 	.project-btn.on {
 		display:block;
 	}
+	
+	.archive-btn {
+		display:none;
+	}
+	
+	.archive-btn.on {
+		display:block;
+	}
+	
 /* Header */
 
 	#header {
